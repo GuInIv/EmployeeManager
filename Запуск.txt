@@ -1,0 +1,8 @@
+Зайти из cmd в папку серверной части с помощью команды cd
+\EmployeeManager.ServerApp\EmployeeManager.ServerApp\
+
+выполнить в cmd из этой папки
+dotnet run
+
+открыть браузер и ввести
+https://localhost:5001/

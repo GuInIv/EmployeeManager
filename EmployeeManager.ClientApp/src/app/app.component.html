@@ -1,0 +1,91 @@
+<h3>Employees</h3>
+<table width="100%" align="center" cellpadding="4" cellspacing="1">
+  <tr>
+    <td><label>First name</label></td>
+    <td><input type="text" [(ngModel)]="employee.firstName" class="form-control" /></td>
+    <td colspan="2"><label>Position name</label></td>
+    <td colspan="2"><input type="text" [(ngModel)]="position.name" class="form-control" /></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Last name</label>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="employee.lastName" class="form-control" />
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Position</label>
+      </td>
+    <td>
+      <select [(ngModel)]="employee.position">
+        <option *ngFor="let pos of positions" [ngValue]="pos">
+          {{pos.name}}
+        </option>
+      </select>
+    </td>
+      </tr>
+  <tr>
+    <td>
+      <label>Salary</label>
+    </td>
+    <td>
+      <input type="number" [(ngModel)]="employee.salary" class="form-control" />
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Hiring date</label>
+    </td>
+    <td>
+      <input type="date" [(ngModel)]="employee.hiringDate" value="" class="form-control">
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Termination date</label>
+    </td>
+    <td>
+      <input type="date" [(ngModel)]="employee.terminationDate" class="form-control">
+    </td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button class="btn btn-primary m-1" (click)="createEmployee()">Create emplyee</button>
+    </td>
+    <td colspan="2"></td>
+      <td colspan="2">
+      <button class="btn btn-primary m-1" (click)="createPosition()">Create position</button>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" align="center" cellpadding="4" cellspacing="1">
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>First name</td>
+      <td>Last name</td>
+      <td>Salary</td>
+      <td>Hiring date</td>
+      <td>Termmination date</td>
+      <td>Position</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <td>{{emp?.id}}</td>
+      <td>{{emp?.firstName}}</td>
+      <td>{{emp?.lastName}}</td>
+      <td>{{emp?.salary}}</td>
+      <td>{{emp?.hiringDate}}</td>
+      <td>{{emp?.terminationDate}}</td>
+      <td>{{emp.position?.name || ''}}</td>
+    </tr>
+  </tbody>
+</table>
